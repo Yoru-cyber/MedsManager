@@ -31,7 +31,7 @@ class dbConn
         }
     }
     public function insertQuery($name, $lastName, $email){
-
+        
         $sql = "INSERT INTO books(name, lastName, email)
         VALUES('$name', '$lastName', '$email')";
         $this->conn->exec($sql);
@@ -51,10 +51,4 @@ class dbConn
 };
 
 
-if(isset($_GET["firstName"]) && isset($_GET["lastName"]) && isset($_GET["email"])){
-    $userName = $_GET["firstName"];
-    $userLastname = $_GET["lastName"] ;
-    $userEmail = $_GET["email"];
-    $conn->insertQuery($userName, $userLastname, $userEmail);
-}
 

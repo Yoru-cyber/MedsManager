@@ -22,24 +22,30 @@ $conn->connect();
     <div class="card">
       <h2>Join the rustacean army !</h2>
       <p>Because the 🦀 will rule them all 👑</p>
-      <form method="get" action="conn.php">
+      <form method="get" action="index.php">
         <ul style="list-style: none">
           <li>
             <label for="name">First name: </label>
             <input class="textInput" type="text" name="firstName" inputmode="latin-name" placeholder="Han"
-              style="margin: 20px" />
+              style="margin: 20px" required />
             <label for="lastName">Last name: </label>
             <input name="lastName" class="textInput" type="text" inputmode="latin-name" placeholder="Solo"
-              style="margin: 20px" />
+              style="margin: 20px" required />
           </li>
           <li style="text-align: center">
             <label for="email">Enter your email: </label>
             <input name="email" class="textInput" type="email" placeholder="RustLover1973@gmail.com" inputmode="email"
-              style="margin: 20px" />
+              style="margin: 20px" required />
           </li>
           <li style="justify-content: center; text-align: center">
             <p>I solemnly swear that I give myself upon the crab</p>
-            <input type="submit" class="buttonSub" value="🦀" style="justify-content: center" />
+            <input type="submit" class="buttonSub" value="🦀" onsubmit="<?php if (isset($_GET["firstName"]) && isset($_GET["lastName"]) && isset($_GET["email"])) {
+              $userName = $_GET["firstName"];
+              $userLastname = $_GET["lastName"];
+              $userEmail = $_GET["email"];
+              $conn->insertQuery($userName, $userLastname, $userEmail);
+            }
+            ?>" style="justify-content: center" />
           </li>
         </ul>
       </form>
@@ -47,16 +53,16 @@ $conn->connect();
     <div class="card" style="margin: 10px">
       <h2>Already registered 📋</h2>
       <ul style="list-style: none">
-        <li>
-          <?php
-          //de todos los métodos, array_column fue el más efectivo puesto que retriveQuery retorna un array
-          //no un JSON ni un string, además los array son fácilmente manipulables
-          $data = $conn->retriveQuery();
-          foreach ($data as list($v1, $v2, $v3)){
-            print($v1 . ' ' . $v2 . ' ' . $v3 . '<br>');
-          }
-          ?>
-        </li>
+
+        <?php
+        //de todos los métodos, array_column fue el más efectivo puesto que retriveQuery retorna un array
+        //no un JSON ni un string, además los array son fácilmente manipulables
+        $data = $conn->retriveQuery();
+        foreach ($data as list($v1, $v2, $v3)) {
+          print('<li>' . $v1 . ' ' . $v2 . ' ' . $v3 . '</li>');
+        }
+        ?>
+
       </ul>
     </div>
   </div>
