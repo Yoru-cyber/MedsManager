@@ -50,9 +50,9 @@ $conn->connect();
         </ul>
       </form>
     </div>
-    <div class="card" style="margin: 10px">
+    <div class="card" style="margin-top: 10px; margin-bottom: 10px; padding: 5px">
       <h2>Already registered 📋</h2>
-      <ul style="list-style: none">
+      <ul style="list-style: none; display:flex; flex-direction: column; justify-content: center; margin: 10px; padding: 0px;">
 
         <?php
         //de todos los métodos, array_column fue el más efectivo puesto que retriveQuery retorna un array

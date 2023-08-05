@@ -40,13 +40,22 @@ class dbConn
 //docs say to use the method prepare to return an array with the results
 //so this far easier and less abstract way to get data from the DB
 //def worth investigating more
-        $sql = $this->conn->prepare('SELECT name, lastName, email, id FROM books');
+        $sql = $this->conn->prepare("SELECT name, lastName, email, id FROM books");
         $sql->execute();
         $data = $sql->fetchAll();
         return $data;
         
          
     }
+    public function deleteInfo($userEmail){
+        //docs say to use the method prepare to return an array with the results
+        //so this far easier and less abstract way to get data from the DB
+        //def worth investigating more
+                $sql = $this->conn->prepare("DELETE FROM books WHERE email LIKE '$userEmail'");
+                $sql->execute();
+                
+                 
+            }
     
 };
 
