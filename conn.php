@@ -25,7 +25,6 @@ class dbConn
             $conn = new PDO("mysql:host=$this->serverName;dbname=$this->database", $this->userName, $this->passwordConn);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn = $conn;
-            echo "Connected";
         } catch (PDOException $e) {
             echo "Conn failed: " . $e->getMessage();
 
@@ -37,14 +36,25 @@ class dbConn
         VALUES('$name', '$lastName', '$email')";
         $this->conn->exec($sql);
     }
-
+    public function retriveQuery(){
+//docs say to use the method prepare to return an array with the results
+//so this far easier and less abstract way to get data from the DB
+//def worth investigating more
+        $sql = $this->conn->prepare('SELECT * FROM books');
+        $sql->execute();
+        $data = $sql->fetchAll();
+        return json_encode($data);
+        
+         
+    }
     
 };
 
-$conn = new dbConn('localhost','root','','myfavBooks');
-$userName = $_GET["firstName"];
-$userLastname = $_GET["lastName"];
-$userEmail =$_GET["email"];
-$conn->connect();
-$conn->insertQuery($userName, $userLastname, $userEmail);
-var_dump($conn);
+
+if(isset($_GET["firstName"]) && isset($_GET["lastName"]) && isset($_GET["email"])){
+    $userName = $_GET["firstName"];
+    $userLastname = $_GET["lastName"] ;
+    $userEmail = $_GET["email"];
+    $conn->insertQuery($userName, $userLastname, $userEmail);
+}
+

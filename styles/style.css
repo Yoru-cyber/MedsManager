@@ -21,8 +21,11 @@ form{
 .container {
   height: 100vh;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
 .card {
   background-color: white;

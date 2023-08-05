@@ -65,15 +65,17 @@
       <div class="card" style="margin: 10px">
         <h2>Already registered 📋</h2>
         <ul style="list-style: none">
-          <li></li>
+          <li><?php
+          include 'conn.php';
+        //Dios si me oyes, perdona este código
+          $conn = new dbConn('localhost','root','','myfavBooks');
+          $conn->connect();
+          $json = $conn->retriveQuery();
+          echo $json;
+          
+          ?></li>
         </ul>
       </div>
     </div>
-    <script>
-      fetch("http://localhost/MedsManager/data.php")
-        .then(Response => Response.json())
-        .then(Response => console.log(Response))
-        
-    </script>
   </body>
 </html>
