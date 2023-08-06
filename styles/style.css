@@ -79,3 +79,79 @@ form{
         transform: scale(1.1, 1.1);
     }
 }
+.deleteInfo{
+  background-color: black; 
+  color: white; 
+  border-radius: 5px; 
+  padding: 10px;
+  text-decoration: none;
+}
+.deleteInfo:hover{
+  animation: increase 1s;
+  animation-fill-mode: forwards;
+}
+#delH1{
+
+  animation: appearY 2s, goMiss 500ms forwards 3s;
+
+}
+#delH2{
+  
+  animation: appearY 9s forwards, goMiss 500ms forwards 5s;
+  
+}
+#Ferris{
+  animation: appearX 2s, tilt-shaking 0.5s infinite 2s, goMiss 500ms forwards 3s;
+}
+#cardDelete{
+  opacity: 0%;
+  animation: appearY2 2s forwards 5s;
+}
+@keyframes appearY {
+  0%{
+    opacity: 0%;
+    transform: translateY(60px);
+}
+100%{
+  transform: translateY(0px);
+}
+}
+@keyframes appearY2 {
+  0%{
+    opacity: 0%;
+    transform: translateY(60px);
+}
+100%{
+  opacity: 100%;
+  transform: translateY(-50px);
+}
+}
+
+
+
+@keyframes appearX {
+  0%{
+    opacity: 0%;
+    transform: translateX(-100px);
+}
+100%{
+  transform: translateX(0px);}
+}
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes goMiss {
+  0%{
+    opacity: 100%;
+    transform: translateY(0px);
+}
+
+100%{
+  opacity: 0%;
+  transform: translateY(-100px);}
+}
+  

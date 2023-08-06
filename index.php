@@ -59,12 +59,13 @@ $conn->connect();
         //no un JSON ni un string, además los array son fácilmente manipulables
         $data = $conn->retriveQuery();
         foreach ($data as list($v1, $v2, $v3)) {
-          print('<li>' . $v1 . ' ' . $v2 . ' ' . $v3 . '</li>');
+          print('<li style="Margin: 5px;">' . $v1 . ' ' . $v2 . ' ' . $v3 . '</li>');
         }
         ?>
 
       </ul>
     </div>
+    <a class="deleteInfo" href="deleteInfo.php">Delete my info</a>
   </div>
 </body>
 
