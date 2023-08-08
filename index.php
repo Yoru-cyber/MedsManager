@@ -52,7 +52,7 @@ $conn->connect();
         </ul>
       </form>
     </div>
-    <div class="card" style="margin-top: 10px; margin-bottom: 10px; padding: 5px">
+    <div class="card" style="margin-top: 20px; margin-bottom: 10px; padding: 5px">
       <h2>Already registered 📋</h2>
       <ul style="list-style: none; display:flex; flex-direction: column; justify-content: center; margin: 10px; padding: 0px;">
 
