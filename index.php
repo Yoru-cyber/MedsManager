@@ -28,9 +28,11 @@ $conn->connect();
             <label for="name">First name: </label>
             <input class="textInput" type="text" name="firstName" inputmode="latin-name" placeholder="Han"
               style="margin: 20px" required />
-            <label for="lastName">Last name: </label>
-            <input name="lastName" class="textInput" type="text" inputmode="latin-name" placeholder="Solo"
-              style="margin: 20px" required />
+          </li>
+          <li>
+          <label for="lastName">Last name: </label>
+            <input name="lastName" class="textInput" type="text" inputmode="latin-name" placeholder="Solo" style="margin: 20px" required />
+             
           </li>
           <li style="text-align: center">
             <label for="email">Enter your email: </label>
